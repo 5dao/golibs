@@ -40,6 +40,16 @@ func SetLevel(level logrus.Level) {
 	std.SetLevel(level)
 }
 
+// SetLevelStr sets the standard logger level.
+func SetLevelStr(levelStr string) error {
+	level, err := logrus.ParseLevel(levelStr)
+	if err != nil {
+		return err
+	}
+	std.SetLevel(level)
+	return nil
+}
+
 // GetLevel returns the standard logger level.
 func GetLevel() logrus.Level {
 	return std.GetLevel()
